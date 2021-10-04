@@ -1,0 +1,15 @@
+﻿@model IEnumerable<HotDeskApp.Employee>
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<h3>Choose the section</h3>
+<br>
+<br>
+<p>
+    <a asp-controller="AdminPanel" asp-action="GetRegisteredEmployees">Registered Employees</a>
+</p>
+<p>
+    <a asp-controller="AdminPanel" asp-action="GetWorkplaces">Workplaces</a>
+</p>

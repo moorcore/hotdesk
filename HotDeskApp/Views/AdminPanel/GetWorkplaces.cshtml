@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HotDeskApp.Workplace>
+
+@{
+    ViewData["Title"] = "Workplaces";
+}
+
+<h1>Workplaces</h1>
+
+<p>
+    <a asp-action="AddWorkplace">Add A New Workplace</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Device)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Device.DeviceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reservation.ReservationId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.WorkplaceId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.WorkplaceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.WorkplaceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
